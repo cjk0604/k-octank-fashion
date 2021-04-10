@@ -7,6 +7,10 @@ general_bp = Blueprint("general_bp", __name__ , template_folder="templates/gener
 def home():
 	return render_template("index.html", title="Home")
 
+@general_bp.route("/analytic")
+def analytics():
+	return render_template("analytics.html", title="Home")
+
 @general_bp.route("/search")
 def search():
     query = request.args['keyword']
