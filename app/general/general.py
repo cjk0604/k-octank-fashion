@@ -30,7 +30,7 @@ def home():
     finally:
         conn.commit()
         conn.close()
-	return render_template("index.html", title="Home")
+    return render_template("index.html", title="Home")
 
 @general_bp.route("/analytic")
 def analytics():
