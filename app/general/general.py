@@ -5,9 +5,8 @@ import json
 general_bp = Blueprint("general_bp", __name__ , template_folder="templates/general", static_url_path="/static")
 @general_bp.route("/")
 def home():
-    database = db.DB()
-    country_list = database.query("SELECT * FROM jewelry;")
-	return render_template("index.html", title="Home", country_list= country_list)
+    
+	return render_template("index.html", title="Home")
 
 @general_bp.route("/analytic")
 def analytics():
