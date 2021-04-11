@@ -5,11 +5,13 @@ import json
 general_bp = Blueprint("general_bp", __name__ , template_folder="templates/general", static_url_path="/static")
 @general_bp.route("/")
 def home():
-	return render_template("index.html", title="Home")
+    database = db.DB()
+    country_list = database.query("SELECT * FROM jewelry;")
+	return render_template("index.html", title="Home", country_list= country_list)
 
 @general_bp.route("/analytic")
 def analytics():
-	return render_template("analytics.html", title="Home")
+	return redirect('https://57gq98nfmg.execute-api.us-east-1.amazonaws.com/test/anonymous-embed-sample')
 
 @general_bp.route("/search")
 def search():
