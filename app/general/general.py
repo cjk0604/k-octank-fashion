@@ -9,7 +9,7 @@ def home():
 
 @general_bp.route("/analytic")
 def analytics():
-	return render_template("analytics.html", title="Home")
+	return redirect('https://57gq98nfmg.execute-api.us-east-1.amazonaws.com/test/anonymous-embed-sample')
 
 @general_bp.route("/search")
 def search():
