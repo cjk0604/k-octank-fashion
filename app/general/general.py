@@ -22,7 +22,7 @@ def home():
 
     try:
         with conn.cursor(pymysql.cursors.DictCursor) as cursor:
-            sql = 'select * from fashion'
+            sql = 'select * from fashion limit 10;'
             cursor.execute(sql)
             rs = cursor.fetchall()
             for row in rs:
