@@ -1,7 +1,7 @@
 ## Production Link
  k-octank.shop/
 
-# EC2 Launch Template
+# 1. EC2 Launch Template
 ## user data
 ```
 #!/bin/bash 
@@ -18,14 +18,14 @@ export DATABASE_DB_NAME=
 python3 app.py
 ```
 
-# 부하 테스트
+# 2. 부하 테스트
 ## apache benchmark
 ```
 ab -c 300 -n 500 -t 300 http://k-octank.shop/
 ab -c 300 -n 500 -t 300 http://k-octank.shop/products/fashion/
 ```
 
-# Latency
+# 3. Latency
 ## Cloudfront 거치지 않고 요청
 ```
 curl -s -w '\nLookup Time:\t%{time_namelookup}\nConnect time:\t%{time_connect}\nPreXfer time:\t%{time_pretransfer}\nStartXfer time:\t%{time_starttransfer}\n\nTotal time:\t%{time_total}\n' -o /dev/null http://k-octank-vpc-alb-2-1616693628.us-east-1.elb.amazonaws.com/products/fashion?page=1/
@@ -41,7 +41,7 @@ curl -s -w '\nTotal Time:\t%{time_total}\n' -o /dev/null http://k-octank.shop/
 ```
 - dynamic  동적 호스팅
 
-# Bastion Host 연결
+# 4. Bastion Host 연결
 ## Bastion 호스틑에서 Private Subnet EC2 연결 방법
 1. Bastion 호스트를 연결
 ```
@@ -55,7 +55,7 @@ ssh -i koctank.pem -p 33322 ec2-user@localhost
 
 참고: https://boomkim.github.io/2019/12/20/bastion-host-port-forwarding/
 
-# 로그 분석 및 시각화
+# 5. 로그 분석 및 시각화
 ## Athena에서 CloudFront_access log S3 연결
 ```
 Create database octank
@@ -104,13 +104,13 @@ LOCATION 's3://octank-cloudfront-standard-log/'
 TBLPROPERTIES ( 'skip.header.line.count'='2' )
 ```
 
-# Test Query
+## Test Query
 ```
 SELECT DISTINCT * 
 FROM cloudfront_logs 
 LIMIT 10;
 ```
 
-## Quicksight 연결 및 대시보드 생성
-# 인기 페이지 대시보그 생성
+# 5.1 Quicksight 연결 및 대시보드 생성
+## 인기 페이지 대시보그 생성
 
