@@ -128,4 +128,9 @@ LIMIT 10;
 
 # 5.1 Quicksight 연결 및 대시보드 생성
 ## 인기 페이지 대시보그 생성
+## QuickSight Embed
+https://learnquicksight.workshop.aws/en/anonymous-embedding.html
 
+# Appendix
+## MySQl.db -> RDS MySQL
+sudo mysql -h koctankdbcluster.cmctwgljftes.us-east-1.rds.amazonaws.com -u admin -P 3306 -p koctank < dump.sql
