@@ -25,8 +25,9 @@ def home():
             sql = 'select * from fashion limit 10;'
             cursor.execute(sql)
             rs = cursor.fetchall()
-            for row in rs:
-                print(row)
+            for row_1 in rs
+                for row in rs:
+                    print(row)
     finally:
         conn.commit()
         conn.close()
