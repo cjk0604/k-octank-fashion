@@ -11,10 +11,10 @@ sudo yum install -y python3
 git clone https://github.com/cjk0604/k-octank-fashion.git
 cd k-octank-fashion
 sudo pip3 install -r requirements.txt
-export DATABASE_HOST=
-export DATABASE_USER=
+export DATABASE_HOST="koctankdbcluster.cmctwgljftes.us-east-1.rds.amazonaws.com"
+export DATABASE_USER="admin"
 export DATABASE_PASSWORD=
-export DATABASE_DB_NAME=
+export DATABASE_DB_NAME="koctank"
 python3 app.py
 ```
 
@@ -45,12 +45,27 @@ curl -s -w '\nTotal Time:\t%{time_total}\n' -o /dev/null http://k-octank.shop/
 ## Bastion 호스틑에서 Private Subnet EC2 연결 방법
 1. Bastion 호스트를 연결
 ```
-ssh -i "koctank.pem" -N -L 33322:10.10.11.57:22 ec2-user@3.81.174.50 
+ssh -i "koctank.pem" -N -L 33321:10.10.11.200:22 ec2-user@3.81.174.50 
 ```
 
 2. 새로운 터미널을 열고 밑에 코드 복사
 ```
-ssh -i koctank.pem -p 33322 ec2-user@localhost 
+ssh -i koctank.pem -p 33321 ec2-user@localhost 
+```
+
+3. RDS MySQL DB 접속
+```
+mysql -h koctankdbcluster.cmctwgljftes.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
+```
+
+table
+```
+show tables;
+```
+
+query something from tables
+```
+select name, price from fashion limit 10;
 ```
 
 참고: https://boomkim.github.io/2019/12/20/bastion-host-port-forwarding/
