@@ -21,7 +21,7 @@ python3 app.py
 # 2. 부하 테스트
 ## apache benchmark
 ```
-ab -c 300 -n 500 -t 300 http://k-octank.shop/
+ab -n 100000 http://k-octank.shop/
 ab -c 300 -n 500 -t 300 http://k-octank.shop/products/fashion/
 ```
 
