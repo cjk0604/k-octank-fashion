@@ -1,5 +1,5 @@
 ## Production Link
- k-octank.shop/
+http://k-octank.shop/
 
 # 1. EC2 Launch Template
 ## user data
