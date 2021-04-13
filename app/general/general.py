@@ -21,7 +21,7 @@ def analytics():
 
 @general_bp.route("/api")
 def apicall():
-	return {'id': str(id)}, 200
+	return {'id': "strid"}, 200
 
 
 @general_bp.route("/search")
