@@ -4,6 +4,7 @@ from app.ajax.ajax import ajax_bp
 from app.products.products import  products_bp
 from app.auth.auth import auth_bp	
 from app.cart.cart import cart_bp
+from app.api.foo import api_bp
 from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app)
@@ -20,4 +21,4 @@ app.register_blueprint(ajax_bp, url_prefix="/ajax")
 app.register_blueprint(products_bp, url_prefix="/products")
 app.register_blueprint(auth_bp, url_prefix="/auth")
 app.register_blueprint(cart_bp, url_prefix="/cart")
-app.register_blueprint(cart_bp, url_prefix="/api")
+app.register_blueprint(api_bp, url_prefix="/api")

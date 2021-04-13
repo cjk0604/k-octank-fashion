@@ -1,5 +1,4 @@
-from flask import Blueprint
-from flask_restful import Resource
+from flask import Flask, Blueprint, render_template, request, jsonify, url_for, redirect
 
 
 foo_bp = Blueprint('foo', __name__)
