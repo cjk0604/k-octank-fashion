@@ -21,7 +21,7 @@ def analytics():
 
 @general_bp.route("/api")
 def apicall():
-	return "<h1>Test</h1>"
+	return render_template("index.html", title="Home")
 
 
 @general_bp.route("/search")
