@@ -22,11 +22,6 @@ general_bp = Blueprint("general_bp", __name__ , template_folder="templates/gener
 def home():
     return render_template("index.html", title="Home")
 
-class Koctank(Resource):
-    def get(self):
-        return {"octank": "abp test"}
-
-]
 
 
 @general_bp.route("/analytic")
