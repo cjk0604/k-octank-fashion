@@ -27,7 +27,10 @@ def analytics():
 
 @general_bp.route("/search")
 def search():
-    query = request.args['keyword']
-    products = requests.get("http://localhost:5000/api/products/groceries/"+query)
-    return render_template("search_results.html",search_results={"products":products.json(), "number":len(products.json())}, title=query)
+    return render_template("index.html", title="Home")
 
+# @general_bp.route("/search")
+# def search():
+#     query = request.args['keyword']
+#     products = requests.get("http://localhost:5000/api/products/groceries/"+query)
+#     return render_template("search_results.html",search_results={"products":products.json(), "number":len(products.json())}, title=query)
