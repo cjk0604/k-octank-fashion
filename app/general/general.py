@@ -22,7 +22,7 @@ def home():
 
     try:
         with conn.cursor(pymysql.cursors.DictCursor) as cursor:
-            sql = 'select * from bicycles;'
+            sql = 'select * from apparels;'
             cursor.execute(sql)
             rs = cursor.fetchall()
             for row_1 in rs:
