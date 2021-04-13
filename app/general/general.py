@@ -14,9 +14,10 @@ general_bp = Blueprint("general_bp", __name__ , template_folder="templates/gener
 def home():
     return render_template("index.html", title="Home")
 
-@general_bp.route("/quick")
-def quick():
-    return render_template("index.html", title="Home")
+@general_bp.route("/api", methods = ['get'])
+def api():
+	return {"id": "octank"}, 200
+
 
 
 @general_bp.route("/analytic")
@@ -25,9 +26,9 @@ def analytics():
 
 
 
-@general_bp.route("/search")
-def search():
-    return render_template("index.html", title="Home")
+# @general_bp.route("/search")
+# def search():
+#     return render_template("index.html", title="Home")
 
 # @general_bp.route("/search")
 # def search():
