@@ -8,16 +8,11 @@ import json
 import pymysql
 import os
 
-loadtest_api = Blueprint('loadtest_api', __name__)
 
 general_bp = Blueprint("general_bp", __name__ , template_folder="templates/general", static_url_path="/static")
 @general_bp.route("/")
 def home():
     return render_template("index.html", title="Home")
-
-@loadtest_api.route("/test")
-def loadtest():
-    return jsonify({"octank": "abp test"})
 
 
 @general_bp.route("/analytic")

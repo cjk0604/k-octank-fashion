@@ -11,3 +11,8 @@ def search_query():
     product = Product()
     product_items = product.show_all_items()
     return jsonify([dict(p) for p in product_items if p['name'].lower().startswith(query)])
+
+@ajax_bp.route("/api")
+def search_query():
+    
+    return jsonify("load test")
