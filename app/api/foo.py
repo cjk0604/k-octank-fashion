@@ -4,6 +4,7 @@ from flask import Flask, Blueprint, render_template, request, jsonify, url_for, 
 foo_bp = Blueprint('foo', __name__)
 
 
-class Hello(Resource):
-    def get(self):
-        return 'Hello, World!', 200
+api_bp = Blueprint("api_bp", __name__)
+@api_bp.route("/")
+def get(self):
+    return 'Hello, World!', 200
