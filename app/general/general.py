@@ -7,12 +7,12 @@ import json
 import pymysql
 import os
 
-app = Flask(__name__)
-api = Api(app)
-
 class Koctank(Resource):
     def get(self):
         return {"octank": "abp test"}
+
+rest_api_call = Blueprint('rest_api_call', __name__)
+api = Api(rest_api_call)
 
 api.add_resource(Koctank, '/test')
 
