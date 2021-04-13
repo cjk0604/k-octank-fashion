@@ -18,16 +18,17 @@ port = 3306
 general_bp = Blueprint("general_bp", __name__ , template_folder="templates/general", static_url_path="/static")
 @general_bp.route("/")
 def home():
-    conn = pymysql.connect(rds_host, user=db_user, passwd=password, db=db_name, connect_timeout=100, port=port, charset='utf8mb4')
+    conn = pymysql.connect(rds_host, user=db_user, passwd=password, db=db_name, connect_timeout=10000, port=port, charset='utf8mb4')
 
     try:
         with conn.cursor(pymysql.cursors.DictCursor) as cursor:
-            sql = 'select * from apparels;'
+            sql = 'select * from apparels limit 7;'
             cursor.execute(sql)
             rs = cursor.fetchall()
             for row_1 in rs:
-                for row in rs:
-                    print(row)
+                for row_2 in rs:
+                    for row in rs:
+                        print(row)
     finally:
         conn.commit()
         conn.close()
