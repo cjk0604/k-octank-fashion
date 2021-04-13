@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint, render_template, request, jsonify, url_for, redirect
-from flask_restx import Api, Resource
+from flask_restful import Api, Resource
 
 import requests
 import json
