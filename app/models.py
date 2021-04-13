@@ -10,7 +10,7 @@ def connect():
     port = 3306
 
     #server_address = (rds_host, port)
-    conn = pymysql.connect(rds_host, user=db_user, passwd=password, db=db_name, connect_timeout=5, port=port, charset='utf8mb4')
+    conn = pymysql.connect(rds_host, user=db_user, passwd=password, db=db_name, connect_timeout=10000, port=port, charset='utf8mb4')
     return conn
 
 class Product:
