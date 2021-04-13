@@ -14,14 +14,15 @@ general_bp = Blueprint("general_bp", __name__ , template_folder="templates/gener
 def home():
     return render_template("index.html", title="Home")
 
+@general_bp.route("/quick")
+def quick():
+    return render_template("index.html", title="Home")
+
 
 @general_bp.route("/analytic")
 def analytics():
 	return redirect('https://57gq98nfmg.execute-api.us-east-1.amazonaws.com/test/anonymous-embed-sample')
 
-@general_bp.route("/helloworldtest")
-def helloworldtest():
-	return render_template("index.html", title="Home")
 
 
 @general_bp.route("/search")
