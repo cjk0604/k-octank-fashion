@@ -8,29 +8,15 @@ import os
 
 
 
-
-
-
 general_bp = Blueprint("general_bp", __name__ , template_folder="templates/general", static_url_path="/static")
 @general_bp.route("/")
 def home():
-
-    rs = ["load test","load test","load test","load test","load test","load test","load test","load test","load test","load test","load test","load test"]
-    for row_1 in rs:
-        print("getting into second loop")
-        for row2 in rs:
-            print("getting into third loop")
-            for row in rs:
-                print("loop done!")
     return render_template("index.html", title="Home")
 
 @general_bp.route("/analytic")
 def analytics():
 	return redirect('https://57gq98nfmg.execute-api.us-east-1.amazonaws.com/test/anonymous-embed-sample')
 
-@general_bp.route("/test")
-def loadtest():
-	return {'load': 'test'}
 
 @general_bp.route("/search")
 def search():
