@@ -15,7 +15,7 @@ general_bp = Blueprint("general_bp", __name__ , template_folder="templates/gener
 def home():
     return render_template("index.html", title="Home")
 
-@general_bp.route("/test", methods=['GET'])
+@general_bp.route("/test")
 def loadtest():
     return jsonify({"octank": "abp test"})
 
