@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint, render_template, request, jsonify, url_for, redirect
-from flask_restful import Api, Resource
+
 
 import requests
 import json
@@ -7,14 +7,6 @@ import json
 import pymysql
 import os
 
-class Koctank(Resource):
-    def get(self):
-        return {"octank": "abp test"}
-
-rest_api_call = Blueprint('rest_api_call', __name__)
-api = Api(rest_api_call)
-
-api.add_resource(Koctank, '/test')
 
 
 general_bp = Blueprint("general_bp", __name__ , template_folder="templates/general", static_url_path="/static")
@@ -22,6 +14,9 @@ general_bp = Blueprint("general_bp", __name__ , template_folder="templates/gener
 def home():
     return render_template("index.html", title="Home")
 
+@general_bp.route("/test", methods=['GET'])
+def loadtest():
+    return {"octank": "abp test"}
 
 
 @general_bp.route("/analytic")
