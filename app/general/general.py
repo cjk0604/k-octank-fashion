@@ -19,9 +19,9 @@ def home():
 def analytics():
 	return redirect('https://57gq98nfmg.execute-api.us-east-1.amazonaws.com/test/anonymous-embed-sample')
 
-@general_bp.route("/api", methods=['GET'])
+@general_bp.route("/api")
 def apicall():
-	return {'id': "octank"}, 200
+	return "<h1>Test</h1>"
 
 
 @general_bp.route("/search")
