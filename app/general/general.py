@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, render_template, request, jsonify, url_for, redirect
+from flask import Flask, Blueprint, render_template, request, jsonify, url_for, redirect, Response
 import jsonify
 
 
@@ -21,7 +21,7 @@ def analytics():
 
 @general_bp.route("/api")
 def apicall():
-	return {'id': "strid"}, 200
+	return Response(jsonify({"id": "koctank"}), mimetype="application/json", status=200)
 
 
 @general_bp.route("/search")
