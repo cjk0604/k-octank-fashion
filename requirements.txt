@@ -16,3 +16,4 @@ PyMySQL==0.10.1
 flask_wtf
 email_validator
 flask-restful
+jsonify

@@ -1,4 +1,5 @@
 from flask import Flask, Blueprint, render_template, request, jsonify, url_for, redirect
+import jsonify
 
 
 import requests
@@ -16,7 +17,7 @@ def home():
 
 @general_bp.route("/test", methods=['GET'])
 def loadtest():
-    return {"octank": "abp test"}
+    return jsonify({"octank": "abp test"})
 
 
 @general_bp.route("/analytic")
