@@ -7,7 +7,7 @@ class Koctank(Resource):
     def get(self):
         return {"octank": "abp test"}
 
-api.add_resource(Koctank, '/test')
+api.add_resource(Koctank, '/')
 
 if __name__=="__main__":
     app.run(debug=True, host='0.0.0.0', port=8443)
