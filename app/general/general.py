@@ -22,13 +22,12 @@ def home():
 
     try:
         with conn.cursor(pymysql.cursors.DictCursor) as cursor:
-            sql = 'select * from apparels limit 7;'
+            sql = 'select * from fashion limit 10;'
             cursor.execute(sql)
             rs = cursor.fetchall()
             for row_1 in rs:
-                for row_2 in rs:
-                    for row in rs:
-                        print(row)
+                for row in rs:
+                    print(row)
     finally:
         conn.commit()
         conn.close()
