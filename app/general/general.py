@@ -28,6 +28,10 @@ def home():
 def analytics():
 	return redirect('https://57gq98nfmg.execute-api.us-east-1.amazonaws.com/test/anonymous-embed-sample')
 
+@general_bp.route("/test")
+def loadtest():
+	return {'load': 'test'}
+
 @general_bp.route("/search")
 def search():
     query = request.args['keyword']
