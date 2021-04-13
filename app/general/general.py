@@ -19,8 +19,8 @@ def home():
 def analytics():
 	return redirect('https://57gq98nfmg.execute-api.us-east-1.amazonaws.com/test/anonymous-embed-sample')
 
-@general_bp.route("/api")
-def apicall():
+@general_bp.route("/helloworldtest")
+def helloworldtest():
 	return render_template("index.html", title="Home")
 
 
