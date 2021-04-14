@@ -14,8 +14,8 @@ general_bp = Blueprint("general_bp", __name__ , template_folder="templates/gener
 def home():
     return render_template("index.html", title="Home")
 
-@general_bp.route("/apiloadtest", methods = ['get'])
-def apiloadtest():
+@general_bp.route("/apiproduct", methods = ['get'])
+def apiproduct():
 	return {"id": "octank"}, 200
 
 
