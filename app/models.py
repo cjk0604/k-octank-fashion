@@ -22,37 +22,28 @@ class Product:
     
     def return_items(self):
         products = None
-        try:
-            cur = self.cursor
-            cur.execute(f"SELECT * FROM {self.product_name}")
-            products = cur.fetchall()
-            print("select specfic product done!!!!")
-        finally:
-            cur.commit()
-            cur.close()
-        
+        cur = self.cursor
+        cur.execute(f"SELECT * FROM {self.product_name}")
+        products = cur.fetchall()
+        print("select specfic product done!!!!")
         return products
 
     def show_all_items(self):
         results = None
-        try:
-            cur = self.cursor
-            sql = """
-            SELECT id,name,price, description,img_url FROM apparels
-            UNION
-            SELECT id,name,price, description,img_url FROM fashion
-            UNION
-            SELECT id,name, price, description,img_url FROM bicycles
-            UNION 
-            SELECT id,name, price, description,img_url FROM jewelry
-            ORDER BY name
-            """
-            cur.execute(sql)
-            results = cur.fetchall()
-            print("select all done!!!!")
-        finally:
-            cur.commit()
-            cur.close()
+        cur = self.cursor
+        sql = """
+        SELECT id,name,price, description,img_url FROM apparels
+        UNION
+        SELECT id,name,price, description,img_url FROM fashion
+        UNION
+        SELECT id,name, price, description,img_url FROM bicycles
+        UNION 
+        SELECT id,name, price, description,img_url FROM jewelry
+        ORDER BY name
+        """
+        cur.execute(sql)
+        results = cur.fetchall()
+        print("select all done!!!!")
         return results
 
 class User:
