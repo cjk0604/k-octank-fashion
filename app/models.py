@@ -27,6 +27,7 @@ class Product:
         cur.execute(f"SELECT * FROM {self.product_name}")
         products = cur.fetchall()
         self.db.commit()
+        cur.close()
         self.db.close()
         print("select specfic product done!!!!")
         return products
@@ -47,6 +48,7 @@ class Product:
         cur.execute(sql)
         results = cur.fetchall()
         self.db.commit()
+        cur.close()
         self.db.close()
         print("select all done!!!!")
         return results
@@ -62,6 +64,7 @@ class User:
         cur = self.cursor
         cur.execute(sql, data)
         self.db.commit()
+        cur.close()
         self.db.close()
         
 
@@ -71,6 +74,7 @@ class User:
         cur.execute(sql)
         result = cur.fetchall()
         self.db.commit()
+        cur.close()
         self.db.close()
         row_count =  len(result)
         print(row_count)
