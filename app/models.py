@@ -26,7 +26,7 @@ class Product:
         cur.execute(f"SELECT * FROM {self.product_name}")
         products = cur.fetchall()
         self.db.commit()
-        print("select specfic product done!!!!"
+        print("select specfic product done!!!!")
         return products
 
     def show_all_items(self):
