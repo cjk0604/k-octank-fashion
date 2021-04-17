@@ -17,6 +17,7 @@ class Product:
     def __init__(self, product_name=None, db=connect()):
         self.product_name = product_name
         self.cursor = db.cursor(pymysql.cursors.DictCursor)
+        self.db = db
         print("cursor connection done!!!")
         
     
