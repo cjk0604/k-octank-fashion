@@ -13,29 +13,38 @@ def connect():
     conn = pymysql.connect(rds_host, user=db_user, passwd=password, db=db_name, connect_timeout=10000, port=port, charset='utf8mb4')
     return conn
 
+# class Product:
+#     def __init__(self, product_name=None, db=connect()):
+#         self.product_name = product_name
+#         #self.cursor = db.cursor(pymysql.cursors.DictCursor)
+#         self.db = db
+#         print("cursor connection done!!!")
+
 class Product:
-    def __init__(self, product_name=None, db=connect()):
+    def __init__(self, product_name=None):
         self.product_name = product_name
         #self.cursor = db.cursor(pymysql.cursors.DictCursor)
-        self.db = db
+        #self.db = db
         print("cursor connection done!!!")
-        
+
     
     def return_items(self):
         products = None
-        cur = self.db.cursor(pymysql.cursors.DictCursor)
+        mysqldb = connect()
+        cur = mysqldb.cursor(pymysql.cursors.DictCursor)
         # cur = self.cursor
         cur.execute(f"SELECT * FROM {self.product_name}")
         products = cur.fetchall()
-        self.db.commit()
+        mysqldb.commit()
         cur.close()
-        self.db.close()
+        mysqldb.close()
         print("select specfic product done!!!!")
         return products
 
     def show_all_items(self):
         results = None
-        cur = self.cursor
+        mysqldb = connect()
+        cur = mysqldb.cursor(pymysql.cursors.DictCursor)
         sql = """
         SELECT id,name,price, description,img_url FROM apparels
         UNION
@@ -48,9 +57,9 @@ class Product:
         """
         cur.execute(sql)
         results = cur.fetchall()
-        self.db.commit()
+        mysqldb.commit()
         cur.close()
-        self.db.close()
+        mysqldb.close()
         print("select all done!!!!")
         return results
 
